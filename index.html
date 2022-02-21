@@ -1,21 +1,41 @@
 <!DOCTYPE html>
 
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>VestMC.pl - Comming Soon</title>
-        <link href="css/styles.css" rel="stylesheet">
-        <!--JQuery-->
-        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    </head>
-    <body>
-        <div id="loading"></div>
-        <div id="container">
-            <div class="header">
-                <img src="images/Vestt.png" width="50" height="50" class="logo">
-                </div>
-            </div>
-            <!--Loading scripts-->
-            <script src="js/loading.js"></script> 
-        </div>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/VestMC.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VestMC odliczanie</title>
+  <script type="module" crossorigin src="/assets/index.4be9f718.js"></script>
+  <link rel="modulepreload" href="/assets/vendor.fc6c0289.js">
+  <link rel="stylesheet" href="/assets/index.4f88c232.css">
+</head>
+<body>
+    <div id="app"></div>
+    
+    <script>
+        // Countdown from w3schools https://www.w3schools.com/howto/howto_js_countdown.asp
+        var countDownDate = new Date("Mar 1, 2022 18:00:00").getTime();
+        
+        var x = setInterval(function() {
+        
+          var now = new Date().getTime();
+        
+          var distance = countDownDate - now;
+        
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+          document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+          + minutes + "m " + seconds + "s ";
+        
+          if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("countdown").innerHTML = "Serwer już wystartował! Dziękujemy!";
+          }
+        }, 100);
+        </script>
+</body>
+</html>
